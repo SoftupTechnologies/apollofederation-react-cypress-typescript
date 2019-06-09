@@ -20,7 +20,7 @@ const startServer = () => {
 
       const gateway = await new ApolloGateway({
         serviceList: [
-          { name: "timelogs", url: "http://127.0.0.1:4001" },
+          { name: "timelogs", url: "http://timelogs:4001/graphql" },
         ],
       });
       const { schema, executor } = await gateway.load();
