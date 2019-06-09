@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  backend:
+    build: ./backend
+    command: npm run start
+    ports:
+      - "4000:4000"
+    depends_on: 
+      - timelogs
+    networks:
+      - webnet
+  timelogs: 
+    build: ./backend/services/timelogs
+    command: npm run start
+    ports: 
+      - "4001:4001"
+    networks:
+      - webnet
+networks:
+  webnet:
