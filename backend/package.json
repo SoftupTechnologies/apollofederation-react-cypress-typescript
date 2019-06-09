@@ -6,7 +6,6 @@
   "scripts": {
     "start-gateway": "nodemon ./index.ts",
     "start-service-timelogs": "npm run start --prefix services/timelogs/",
-    "postinstall": "lerna bootstrap",
     "build": "rimraf dist && tsc",
     "start": "node dist/index.js",
     "start:concurrent": "concurrently 'npm:start-service-timelogs' 'npm run start-gateway'"
