@@ -17,7 +17,7 @@ const startServer = async () => {
     });
     const { schema, executor } = await gateway.load();
     const server = new ApolloServer({
-      schema, executor, playground: false
+      schema, executor
     });
     server.listen().then(({ url }) => {
       console.log(`🚀 Server ready at ${url}`);
