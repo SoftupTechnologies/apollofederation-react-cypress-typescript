@@ -1,0 +1,17 @@
+{
+    "baseUrl": "http://localhost:3000",
+    "compilerOptions": {
+        "strict": true,
+        "baseUrl": "./node_modules",
+        "target": "esnext",
+        "types": [
+            "cypress"
+        ],
+        "module": "esnext",
+        "lib": [
+            "es6",
+            "dom",
+            "esnext"
+        ]
+    }
+}
