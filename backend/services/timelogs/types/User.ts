@@ -10,12 +10,13 @@ import { gql } from 'apollo-server';
 
 export const UserType = gql`
     extend type Query {
-        me(id: String!): User
+        me(id: Int!): User
     }
     type User @key(fields: "id") {
         id: ID!
         name: String
         username: String
+        title: String
         birthDate: String
         numberOfDailyLogs: Int
         timelogs: [TimeLogs]

@@ -17,5 +17,21 @@ services:
       - "4001:4001"
     networks:
       - webnet
+  app: 
+    build: ./app
+    command: yarn start
+    ports:
+      - "3000:3000"
+    links:
+      - backend
+    restart: "always"
+    volumes:
+      - ./app:/app
+      - ./app/node_modules:/app/node_modules/
+    environment:
+      - NODE_ENV=development
+    networks:
+      - webnet
+
 networks:
   webnet:

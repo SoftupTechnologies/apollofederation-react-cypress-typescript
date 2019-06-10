@@ -6,9 +6,13 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import * as serviceWorker from './serviceWorker';
 
+// import 'app/node_modules/blueprintjs/core/lib/css/blueprint.css'
+// import './nodblueprintjs/core/lib/css/blueprint.css';
+// import '@blueprintjs/icons/lib/css/blueprint-icons.css';
+
 const App = async () => {
     const client = await new ApolloClient({
-        uri: 'localhost:4000'
+        uri: 'http://localhost:4000'
     });
     return (
         <ApolloProvider client={client}>

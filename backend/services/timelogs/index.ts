@@ -14,7 +14,7 @@ const server = new ApolloServer({
     schema: buildFederatedSchema(
         schemas()
     ),
-    playground: false
+    playground: true
 });
 
 server.listen({ port: 4001 }).then(({ url }) => {

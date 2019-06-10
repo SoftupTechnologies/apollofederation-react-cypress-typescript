@@ -11,7 +11,7 @@ import { timelogs, users } from "../mock";
 export default {
     Query: {
         me(_, { id }) {
-            return users[Number(id) - 1];
+            return users[id - 1];
         }
     },
     User: {
@@ -24,6 +24,9 @@ export default {
         numberOfDailyLogs(user) {
             return timelogs.filter(review => review.authorID === user.id).length;
         },
+        title(user) {
+            return user.title;
+        }
     }
 
 }
