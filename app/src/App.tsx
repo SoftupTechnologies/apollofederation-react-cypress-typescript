@@ -1,3 +1,11 @@
+/*
+ * Project: app
+ * Created Date: Monday May 27th 2019
+ * Author: shpetimselaci : info@softup.co
+ * -----
+ * Copyright (c) 2019 Softup Technologies
+ */
+
 import React, { Fragment, useState } from 'react';
 import { Divider, Spinner, Intent, NumericInput, Position } from "@blueprintjs/core";
 import './App.css';

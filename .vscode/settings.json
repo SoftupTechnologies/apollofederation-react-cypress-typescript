@@ -1,28 +1,26 @@
 {
-    "psi-header.variables": [
-        [
-          "project",
-          "backend"
-        ],
-        [
-          "company",
-          "Softup Technologies"
-        ],
-        [
-          "email",
-          "info@softup.co"
-        ]
-      ],
-      "psi-header.templates": [
-        {
-          "language": "*",
-          "template": [
-            "Project: <<project>>",
-            "Created Date: <<filecreated('dddd MMMM Do YYYY')>>",
-            "Author: <<author>> : <<email>>",
-            "-----",
-            "Copyright (c) <<year>> <<company>>"
-          ]
-        },
-      ],
+  "psi-header.variables": [
+    [
+      "project",
+      "app"
+    ],
+    [
+      "company",
+      "Softup Technologies"
+    ],
+    [
+      "email",
+      "info@softup.co"
+    ]
+  ],
+  "psi-header.templates": [{
+    "language": "*",
+    "template": [
+      "Project: <<project>>",
+      "Created Date: <<filecreated('dddd MMMM Do YYYY')>>",
+      "Author: <<author>> : <<email>>",
+      "-----",
+      "Copyright (c) <<year>> <<company>>"
+    ]
+  }, ],
 }

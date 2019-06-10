@@ -1,3 +1,11 @@
+/*
+ * Project: app
+ * Created Date: Monday June 10th 2019
+ * Author: shpetimselaci : info@softup.co
+ * -----
+ * Copyright (c) 2019 Softup Technologies
+ */
+
 import React from 'react';
 import { Card, Callout, Elevation, Icon, Intent } from '@blueprintjs/core';
 
