@@ -6,21 +6,48 @@
  * Copyright (c) 2019 Softup Technologies
  */
 
-import { ApolloServer } from "apollo-server";
+import { ApolloServer, AuthenticationError } from "apollo-server-express";
+import { IRequest } from "./interfaces/auth";
+import { authErrors } from "./constants";
+import app, { start as startExpressServer } from './server';
+import Config from "./config";
+
 const { ApolloGateway } = require("@apollo/gateway");
 const startServer = async () => {
   try {
+    await startExpressServer();
     const gateway = await new ApolloGateway({
-      serviceList: [
-        { name: "timelogs", url: "http://timelogs:4001/graphql" },
-      ],
+        serviceList: [
+            { name: "timelogs", url: "http://timelogs:4001/graphql" },
+        ],
     });
     const { schema, executor } = await gateway.load();
     const server = new ApolloServer({
-      schema, executor
+        schema,
+        executor,
+        context: async ({ req }: { req: IRequest }) => {
+            try {
+                const { user } = req;
+                if (user && user.error) {
+                    throw new AuthenticationError(user.error);
+                }
+                if (user && user.email) {
+                    return {
+                        user,
+                    };
+                } else {
+                    throw new AuthenticationError(authErrors.unAuthorized );
+                }
+            } catch (error) {
+                throw new AuthenticationError(error.message);
+            }
+          },
+        introspection: Config.graphql.introspection,
+        playground: Config.graphql.playground,
     });
-    server.listen().then(({ url }) => {
-      console.log(`🚀 Server ready at ${url}`);
+    server.applyMiddleware({ 
+        app, 
+        path: Config.graphql.path,
     });
   }
   catch (err) {

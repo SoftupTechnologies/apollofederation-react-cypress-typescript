@@ -9,7 +9,7 @@
 import React from 'react';
 import { Card, Callout, Elevation, Icon, Intent } from '@blueprintjs/core';
 
-export const TimelogCard: React.FC<{ author: string, log: string, username: string }> = ({
+const TimelogCard: React.FC<{ author: string, log: string, username: string }> = ({
     author,
     log,
     username,
@@ -26,3 +26,4 @@ export const TimelogCard: React.FC<{ author: string, log: string, username: stri
         </Card>
     )
 }
+export default TimelogCard;

@@ -12,7 +12,7 @@ export default {
     Query: {
         me(_, { id }) {
             return users[id - 1];
-        }
+        },
     },
     User: {
         __resolveReference(object) {

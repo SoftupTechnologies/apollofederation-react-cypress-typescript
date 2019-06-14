@@ -5,18 +5,23 @@ import Application from './App';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import * as serviceWorker from './serviceWorker';
-
-// import 'app/node_modules/blueprintjs/core/lib/css/blueprint.css'
-// import './nodblueprintjs/core/lib/css/blueprint.css';
-// import '@blueprintjs/icons/lib/css/blueprint-icons.css';
-
+import { BrowserRouter as Router } from 'react-router-dom';
 const App = async () => {
     const client = await new ApolloClient({
-        uri: 'http://localhost:4000'
+        uri: 'http://localhost:4000/gql/',
+        request: async operation => {
+            operation.setContext({
+              headers: {
+                authorization: localStorage.getItem('token') || '',
+              },
+            });
+          },
     });
     return (
         <ApolloProvider client={client}>
-            <Application />
+            <Router>
+                <Application />
+            </Router>
         </ApolloProvider>
     )
 }
