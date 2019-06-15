@@ -19,7 +19,7 @@ export const UserType = gql`
         title: String
         birthDate: String
         numberOfDailyLogs: Int
-        timelogs: [TimeLogs]
+        timelogs: [TimeLog]
     }
 `;
 

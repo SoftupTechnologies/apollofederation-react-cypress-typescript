@@ -6,12 +6,12 @@
  * Copyright (c) 2019 Softup Technologies
  */
 
-import TimeLogs from './TimeLogs';
+import TimeLog from './TimeLog';
 import User from './User';
 import { IResolvers } from './resolvers';
 
 const Resolvers: IResolvers = {
-    TimeLogs,
+    TimeLog,
     User,
 }
 

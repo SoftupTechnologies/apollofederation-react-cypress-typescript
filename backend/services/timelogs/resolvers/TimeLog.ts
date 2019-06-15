@@ -9,7 +9,7 @@
 import { timelogs, users } from "../mock";
 
 export default {
-    TimeLogs: {
+    TimeLog: {
         id(log) {
             return log.id;
         },
@@ -19,6 +19,20 @@ export default {
         },
         __resolveReference(user) {
             return timelogs.find(timelog => user.id === timelog.authorID);
+        }
+    },
+    Mutation: {
+        addTimelog(_, { log }, { user: { id, name }}) {
+            const timelog = {
+                log,
+                authorID: id,
+                id: `${parseInt(timelogs[timelogs.length - 1].id, 10) + 1}`
+            }
+            timelogs.push(timelog)
+            return {
+                ...timelog,
+                name
+            }
         }
     }
 }

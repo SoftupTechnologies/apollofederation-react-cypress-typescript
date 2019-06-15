@@ -9,6 +9,7 @@ COPY package.json /app
 COPY yarn.lock /app
 RUN yarn install
 RUN yarn global add react-scripts@3.0.1
+RUN yarn global add typescript@3.2.1
 
 COPY . /app
 
