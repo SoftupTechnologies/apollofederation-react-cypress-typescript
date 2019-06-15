@@ -8,7 +8,7 @@ Clone the project:
 To setup && run project:
 `docker-compose up --build`
 
-To just run the project:
+To just run the project:d
 `docker-compose up --d`
 
 If you want to see all the logs:
