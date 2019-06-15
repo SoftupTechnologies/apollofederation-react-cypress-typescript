@@ -13,8 +13,8 @@ export default {
         id(log) {
             return log.id;
         },
-        author(review) {
-            return { __typename: "User", id: review.authorID };
+        author(log) {
+            return { __typename: "User", id: log.authorID };
         },
         __resolveReference(user) {
             return timelogs.find(timelog => user.id === timelog.authorID);

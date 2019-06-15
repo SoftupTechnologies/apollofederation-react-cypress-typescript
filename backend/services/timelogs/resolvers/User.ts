@@ -28,9 +28,6 @@ export default {
         numberOfDailyLogs(user) {
             return timelogs.filter(review => review.authorID === user.id).length;
         },
-        title(user) {
-            return user.title;
-        }
     }
 
 }

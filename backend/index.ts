@@ -18,7 +18,7 @@ const startServer = async () => {
     await startExpressServer();
     const gateway = await new ApolloGateway({
         serviceList: [
-            { name: "timelogs", url: "http://timelogs:4001/graphql" },
+            { name: "timelogs", url: "http://localhost:4001/graphql" },
         ],
         buildService({ name, url }) {
             return new RemoteGraphQLDataSource({

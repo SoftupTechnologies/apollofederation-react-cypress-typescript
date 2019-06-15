@@ -14,6 +14,7 @@ export const TimeLogType = gql`
         log: String
         author: User @provides(fields: "name")
     }
+
     extend type Mutation {
         addTimelog(log: String!): TimeLog
     }
