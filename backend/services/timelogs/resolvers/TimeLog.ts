@@ -6,16 +6,15 @@
  * Copyright (c) 2019 Softup Technologies
  */
 
-import { timelogs, users } from "../mock";
+import { timelogs } from "../mock";
 
 export default {
     TimeLog: {
         id(log) {
             return log.id;
         },
-        author(log) {
-            const found = users.find(username => username.id === log.authorID);
-            return found && found.name ? found.name : null;
+        author(review) {
+            return { __typename: "User", id: review.authorID };
         },
         __resolveReference(user) {
             return timelogs.find(timelog => user.id === timelog.authorID);
@@ -33,6 +32,6 @@ export default {
                 ...timelog,
                 name
             }
-        }
+        },
     }
 }
