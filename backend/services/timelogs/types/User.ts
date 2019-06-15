@@ -10,7 +10,7 @@ import { gql } from 'apollo-server';
 
 export const UserType = gql`
     extend type Query {
-        me(id: Int!): User
+        me: User
     }
     type User @key(fields: "id") {
         id: ID!

@@ -6,13 +6,13 @@
  * Copyright (c) 2019 Softup Technologies
  */
 
-import { ApolloServer, AuthenticationError } from "apollo-server-express";
+import { ApolloServer, AuthenticationError,  } from "apollo-server-express";
 import { IRequest } from "./interfaces/auth";
 import { authErrors } from "./constants";
 import app, { start as startExpressServer } from './server';
 import Config from "./config";
 
-const { ApolloGateway } = require("@apollo/gateway");
+const { ApolloGateway, RemoteGraphQLDataSource } = require("@apollo/gateway");
 const startServer = async () => {
   try {
     await startExpressServer();
@@ -20,6 +20,14 @@ const startServer = async () => {
         serviceList: [
             { name: "timelogs", url: "http://timelogs:4001/graphql" },
         ],
+        buildService({ name, url }) {
+            return new RemoteGraphQLDataSource({
+              url,
+              willSendRequest({ request, context }) {
+                request.http.headers.set('user', JSON.stringify(context.user));
+              },
+            });
+          },
     });
     const { schema, executor } = await gateway.load();
     const server = new ApolloServer({
@@ -42,6 +50,7 @@ const startServer = async () => {
                 throw new AuthenticationError(error.message);
             }
           },
+          
         introspection: Config.graphql.introspection,
         playground: Config.graphql.playground,
     });

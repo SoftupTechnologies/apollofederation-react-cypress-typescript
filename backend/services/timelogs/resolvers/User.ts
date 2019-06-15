@@ -7,11 +7,15 @@
  */
 
 import { timelogs, users } from "../mock";
+import { AuthenticationError } from "apollo-server";
 
 export default {
     Query: {
-        me(_, { id }) {
-            return users[id - 1];
+        me(_, params, { user },) {
+            if(!user) {
+                return new AuthenticationError('No user!');
+            }
+            return users[user.id - 1];
         },
     },
     User: {
