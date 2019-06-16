@@ -6,32 +6,34 @@
  * Copyright (c) 2019 Softup Technologies
  */
 
-import { timelogs } from "../mock";
+import { timelogs, users } from "../mock";
 
 export default {
-    TimeLog: {
-        id(log) {
-            return log.id;
-        },
-        author(log) {
-            return { __typename: "User", id: log.authorID };
-        },
-        __resolveReference(user) {
-            return timelogs.find(timelog => user.id === timelog.authorID);
-        }
+  TimeLog: {
+    id(log) {
+      return log.id;
     },
-    Mutation: {
-        addTimelog(_, { log }, { user: { id, name }}) {
-            const timelog = {
-                log,
-                authorID: id,
-                id: `${parseInt(timelogs[timelogs.length - 1].id, 10) + 1}`
-            }
-            timelogs.push(timelog)
-            return {
-                ...timelog,
-                name
-            }
-        },
+    author(log) {
+      const user = users.find(user => user.id === log.authorID)
+      return { __typename: "User", ...user };
+    },
+    __resolveReference(user) {
+      return timelogs.find(timelog => user.id === timelog.authorID);
     }
+  },
+  Mutation: {
+    addTimelog(_, { log, totalHours }, { user }) {
+      const timelog = {
+        log,
+        authorID: user.id,
+        id: `${parseInt(timelogs[timelogs.length - 1].id, 10) + 1}`,
+        totalHours
+      }
+      timelogs.push(timelog)
+      return {
+        ...timelog,
+        author: user
+      }
+    },
+  }
 }

@@ -6,7 +6,7 @@
  * Copyright (c) 2019 Softup Technologies
  */
 
-import { ApolloServer, AuthenticationError,  } from "apollo-server-express";
+import { ApolloServer, AuthenticationError, } from "apollo-server-express";
 import { IRequest } from "./interfaces/auth";
 import { authErrors } from "./constants";
 import app, { start as startExpressServer } from './server';
@@ -17,46 +17,48 @@ const startServer = async () => {
   try {
     await startExpressServer();
     const gateway = await new ApolloGateway({
-        serviceList: [
-            { name: "timelogs", url: "http://timelogs:4001/graphql" },
-        ],
-        buildService({ name, url }) {
-            return new RemoteGraphQLDataSource({
-              url,
-              willSendRequest({ request, context }) {
-                request.http.headers.set('user', JSON.stringify(context.user));
-              },
-            });
+      serviceList: [
+        { name: "timelogs", url: "http://timelogs:4001/graphql" },
+      ],
+      buildService({ name, url }) {
+        return new RemoteGraphQLDataSource({
+          url,
+          willSendRequest({ request, context }) {
+            request.http.headers.set('user', JSON.stringify(context.user));
           },
+        });
+      },
     });
     const { schema, executor } = await gateway.load();
     const server = new ApolloServer({
-        schema,
-        executor,
-        context: async ({ req }: { req: IRequest }) => {
-            try {
-                const { user } = req;
-                if (user && user.error) {
-                    throw new AuthenticationError(user.error);
-                }
-                if (user && user.email) {
-                    return {
-                        user,
-                    };
-                } else {
-                    throw new AuthenticationError(authErrors.unAuthorized );
-                }
-            } catch (error) {
-                throw new AuthenticationError(error.message);
-            }
-          },
-          
-        introspection: Config.graphql.introspection,
-        playground: Config.graphql.playground,
+      schema,
+      executor,
+      context: async ({ req }: { req: IRequest }) => {
+        try {
+          const { user } = req;
+          if (user && user.error) {
+            throw new AuthenticationError(user.error);
+          }
+          if (user && user.email) {
+            const cloneUser = { ...user };
+            delete cloneUser.password
+            return {
+              user: cloneUser,
+            };
+          } else {
+            throw new AuthenticationError(authErrors.unAuthorized);
+          }
+        } catch (error) {
+          throw new AuthenticationError(error.message);
+        }
+      },
+
+      introspection: Config.graphql.introspection,
+      playground: Config.graphql.playground,
     });
-    server.applyMiddleware({ 
-        app, 
-        path: Config.graphql.path,
+    server.applyMiddleware({
+      app,
+      path: Config.graphql.path,
     });
   }
   catch (err) {

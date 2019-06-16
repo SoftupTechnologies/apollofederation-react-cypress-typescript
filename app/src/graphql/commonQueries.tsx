@@ -13,8 +13,12 @@ export const me = gql`
     me {
       username
       name
+      title
       timelogs {
-        author
+        author {
+          name
+        }
+        totalHours
         log
       }
     }

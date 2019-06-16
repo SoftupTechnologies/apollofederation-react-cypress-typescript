@@ -7,12 +7,12 @@
  */
 
 export const authErrors = {
-    missingToken: "Missing token",
-    unAuthorized: "Unauthorized",
-    invalidAccount: 'Invalid email/password',
-    invalidPassword: 'Invalid password',
-    invalidEmail: 'Invalid email',
+  missingToken: "Missing token",
+  unAuthorized: "Unauthorized",
+  invalidAccount: 'Invalid email/password',
+  invalidPassword: 'Invalid password',
+  invalidEmail: 'Invalid email',
 };
 export const serverErrors = {
-    somethingWentWrong: "Something went wrong."
+  somethingWentWrong: "Something went wrong."
 }

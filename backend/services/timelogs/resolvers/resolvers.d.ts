@@ -7,5 +7,5 @@
  */
 
 export interface IResolvers {
-   [key: string]: Object;
+  [key: string]: Object;
 }

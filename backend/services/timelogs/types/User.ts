@@ -9,18 +9,18 @@
 import { gql } from 'apollo-server';
 
 export const UserType = gql`
-    extend type Query {
-        me: User
-    }
-    type User @key(fields: "id") {
-        id: ID!
-        name: String
-        username: String
-        title: String
-        birthDate: String
-        numberOfDailyLogs: Int
-        timelogs: [TimeLog]
-    }
+  extend type Query {
+    me: User
+  }
+  type User @key(fields: "id") {
+    id: ID!
+    name: String
+    username: String
+    title: String
+    birthDate: String
+    numberOfDailyLogs: Int
+    timelogs: [TimeLog]
+  }
 `;
 
 export default UserType;

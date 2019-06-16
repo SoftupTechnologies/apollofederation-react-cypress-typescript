@@ -9,15 +9,16 @@
 import { gql } from 'apollo-server';
 
 export const TimeLogType = gql`
-    type TimeLog @key(fields: "id"){
-        id: ID!
-        log: String
-        author: User @provides(fields: "name")
-    }
+  type TimeLog @key(fields: "id"){
+    id: ID!
+    log: String
+    totalHours: Int
+    author: User @provides(fields: "name")
+  }
 
-    extend type Mutation {
-        addTimelog(log: String!): TimeLog
-    }
+  extend type Mutation {
+    addTimelog(log: String! totalHours: Int!): TimeLog
+  }
 `;
 
 export default TimeLogType;

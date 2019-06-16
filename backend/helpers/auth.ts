@@ -15,11 +15,11 @@ import { IUser } from '../interfaces/auth';
 * @param token
 */
 export const verify = async (token: string): Promise<IUser> => {
-    const payload = await Jwt.verify(
-        token,
-        Config.auth.jwt.secret || '',
-    ) as IUser;
-    return payload;
+  const payload = await Jwt.verify(
+    token,
+    Config.auth.jwt.secret || '',
+  ) as IUser;
+  return payload;
 };
 
 /**
@@ -28,13 +28,13 @@ export const verify = async (token: string): Promise<IUser> => {
  */
 
 export const sign = async (params: IUser) => {
-    const token = await Jwt.sign(
-      {
-        exp: Math.floor(Date.now() / 1000) + Config.auth.jwt.expirationInSeconds,
-        iat: Math.floor(Date.now() / 1000),
-        ...params,
-      },
-      (Config.auth.jwt.secret || ''),
-    );
-    return token;
+  const token = await Jwt.sign(
+    {
+      exp: Math.floor(Date.now() / 1000) + Config.auth.jwt.expirationInSeconds,
+      iat: Math.floor(Date.now() / 1000),
+      ...params,
+    },
+    (Config.auth.jwt.secret || ''),
+  );
+  return token;
 };

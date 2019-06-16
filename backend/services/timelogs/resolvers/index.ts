@@ -11,8 +11,8 @@ import User from './User';
 import { IResolvers } from './resolvers';
 
 const Resolvers: IResolvers = {
-    TimeLog,
-    User,
+  TimeLog,
+  User,
 }
 
 export default Resolvers;

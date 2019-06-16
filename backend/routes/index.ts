@@ -6,8 +6,8 @@
  * Copyright (c) 2019 Softup Technologies
  */
 
- import Authentication from './authentication';
+import Authentication from './authentication';
 
- export default (app) => {
-    app.use('/auth', Authentication);
- };
+export default (app) => {
+  app.use('/auth', Authentication);
+};

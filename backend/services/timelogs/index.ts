@@ -12,29 +12,29 @@ import { schemas } from "./schemas";
 import { Request } from "express";
 
 interface IRequest extends Request {
-    user: any
+  user: any
 }
 const server = new ApolloServer({
-    schema: buildFederatedSchema(
-        schemas()
-    ),
-    playground: true,
-    context: async ({ req }: { req: IRequest }) => {
-        try {
-            const { headers } = req;
-            if (headers && headers['user']) {
-                const user = JSON.parse(headers.user as string);
-                return {
-                    user
-                };
-            }
+  schema: buildFederatedSchema(
+    schemas()
+  ),
+  playground: true,
+  context: async ({ req }: { req: IRequest }) => {
+    try {
+      const { headers } = req;
+      if (headers && headers['user']) {
+        const user = JSON.parse(headers.user as string);
+        return {
+          user
+        };
+      }
 
-        } catch (error) {
-            throw new AuthenticationError(error.message);
-        }
-      },
+    } catch (error) {
+      throw new AuthenticationError(error.message);
+    }
+  },
 });
 
 server.listen({ port: 4001 }).then(({ url }) => {
-    console.log(`🚀 Server ready at ${url}`);
+  console.log(`🚀 Server ready at ${url}`);
 });

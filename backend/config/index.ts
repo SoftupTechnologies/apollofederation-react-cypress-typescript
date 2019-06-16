@@ -8,19 +8,19 @@
 
 import env from "./env";
 
- export default {
-    auth: {
-        jwt: {
-            secret: env.parsed.JWT_SECRET,
-            expirationInSeconds: 86400,
-        },
+export default {
+  auth: {
+    jwt: {
+      secret: env.parsed.JWT_SECRET,
+      expirationInSeconds: 86400,
     },
-    graphql: {
-        path: '/gql',
-        playgroundEndpoint: '/ui',
-        playground: true,
-        introspection: true,
-    },
-    path: '/',
-    port: 4000,
- }
+  },
+  graphql: {
+    path: '/gql',
+    playgroundEndpoint: '/ui',
+    playground: true,
+    introspection: true,
+  },
+  path: '/',
+  port: 4000,
+}

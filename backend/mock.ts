@@ -12,31 +12,31 @@ import { IUser } from './interfaces/auth';
 const date = moment().format('DD-MM-YYYY');
 
 export const users: IUser[] = [
-    {
-        id: "1",
-        name: "Shpetim Selaci",
-        birthDate: date,
-        title: "employee",
-        username: "@s3l4ci",
-        email: "shpetim.selaci@softup.co",
-        password: "$2a$12$dBRTJc45fePzSKvGhN5deOr0de/jKZZyOYm2RtsFWoJrXuzJ03Xri"
-    },
-    {
-        id: "2",
-        name: "Kristi Kristo",
-        birthDate: date,
-        title: "boss",
-        username: "@kristi",
-        email: "kristi.kristo@softup.co",
-        password: "$2a$12$FreOmYOIw91ZHqpUQ6DSiOMDwlg8riMx0E79EpKA0VJRJgxLVu30q"
-    },
-    {
-        id: "3",
-        name: "Stivi Ndoni",
-        title: "employee",
-        birthDate: date,
-        username: "@stivo",
-        email: "stivi.ndoni@softup.co",
-        password: "$2a$12$kNn9JzmH0y1GREcEBO5T..cfVXQTgoqeZz4WPTToVdIzaZYrZBrqa"
-    }
+  {
+    id: "1",
+    name: "Shpetim Selaci",
+    birthDate: date,
+    title: "employee",
+    username: "@s3l4ci",
+    email: "shpetim.selaci@softup.co",
+    password: "$2a$12$dBRTJc45fePzSKvGhN5deOr0de/jKZZyOYm2RtsFWoJrXuzJ03Xri"
+  },
+  {
+    id: "2",
+    name: "Kristi Kristo",
+    birthDate: date,
+    title: "boss",
+    username: "@kristi",
+    email: "kristi.kristo@softup.co",
+    password: "$2a$12$FreOmYOIw91ZHqpUQ6DSiOMDwlg8riMx0E79EpKA0VJRJgxLVu30q"
+  },
+  {
+    id: "3",
+    name: "Stivi Ndoni",
+    title: "employee",
+    birthDate: date,
+    username: "@stivo",
+    email: "stivi.ndoni@softup.co",
+    password: "$2a$12$kNn9JzmH0y1GREcEBO5T..cfVXQTgoqeZz4WPTToVdIzaZYrZBrqa"
+  }
 ];

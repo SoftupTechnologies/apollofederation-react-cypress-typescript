@@ -15,13 +15,15 @@ services:
     build: ./backend/services/timelogs
     command: npm run start
     restart: "always"
+    environment: 
+      - CHOKIDAR_USEPOLLING=true
     ports: 
       - "4001:4001"
     networks:
       - webnet
   app: 
     build: ./app
-    command: yarn start
+    command: npm start
     ports:
       - "3000:3000"
     links:

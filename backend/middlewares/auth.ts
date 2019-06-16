@@ -6,7 +6,7 @@
  * Copyright (c) 2019 Softup Technologies
  */
 
-import { Response, NextFunction} from 'express';
+import { Response, NextFunction } from 'express';
 import * as Auth from '../helpers/auth';
 import { authErrors } from '../constants';
 import { IRequest } from '../interfaces/auth';
@@ -25,7 +25,7 @@ export const authMiddleware = async (
         req.user = result;
       } catch (error) {
         req.user = {
-            error: authErrors.unAuthorized
+          error: authErrors.unAuthorized
         }
       }
     } else {

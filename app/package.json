@@ -14,12 +14,15 @@
     "react-scripts": "3.0.1"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/graphql": "^14.2.1",
     "@types/jest": "24.0.13",
-    "typescript": "3.2.1",
     "@types/node": "12.0.7",
     "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4",
-    "@types/react-router-dom": "^4.3.4"
+    "@types/react-router-dom": "^4.3.4",
+    "apollo": "^2.13.1",
+    "typescript": "3.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

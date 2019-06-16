@@ -7,27 +7,28 @@ import { ApolloProvider } from 'react-apollo';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 const App = async () => {
-    const client = await new ApolloClient({
-        uri: 'http://localhost:4000/gql/',
-        request: async operation => {
-            operation.setContext({
-              headers: {
-                authorization: localStorage.getItem('token') || '',
-              },
-            });
-          },
-    });
-    return (
-        <ApolloProvider client={client}>
-            <Router>
-                <Application />
-            </Router>
-        </ApolloProvider>
-    )
+  const client = await new ApolloClient({
+    uri: 'http://localhost:4000/gql/',
+    onError: (e) => { console.log(e) },
+    request: async operation => {
+      operation.setContext({
+        headers: {
+          authorization: localStorage.getItem('token') || '',
+        },
+      });
+    },
+  });
+  return (
+    <ApolloProvider client={client}>
+      <Router>
+        <Application />
+      </Router>
+    </ApolloProvider>
+  )
 }
 
 const renderApp = async () => {
-    ReactDOM.render(await App(), document.getElementById('root'));
+  ReactDOM.render(await App(), document.getElementById('root'));
 }
 renderApp();
 

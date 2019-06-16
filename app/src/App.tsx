@@ -16,8 +16,8 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <Route path="/" component={Login} />
-        <Route path="/timelogs" component={Timelogs} />
+        <Route path="/" component={Login} exact={true} />
+        <Route path="/timelogs/" component={Timelogs} />
       </header>
     </div>
   )
