@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import axios from 'axios';
-import { Tooltip, Button, Intent, InputGroup, FormGroup, Icon, Card, Elevation } from '@blueprintjs/core';
+import { Tooltip, Button, Intent, InputGroup, FormGroup, Icon, Card, Elevation, Classes } from '@blueprintjs/core';
 import toast from '../Toast';
 
 
@@ -50,15 +50,16 @@ const Login: React.FC<RouteComponentProps> = (props) => {
     <Card
       interactive={true}
       elevation={Elevation.ONE}
-      className={'bp3-dark'}
+      className={`${Classes.DARK}`}
     >
       <FormGroup
         label="Login"
         labelFor="text-input"
         intent={Intent.PRIMARY}
+        className={Classes.alignmentClass('center')}
       >
         <InputGroup
-          className={'bp3-dark bp3-primary'}
+          className={`${Classes.INTENT_PRIMARY} ${Classes.DARK}`}
           placeholder="Enter your email..."
           large={true}
           type={'email'}
@@ -68,7 +69,7 @@ const Login: React.FC<RouteComponentProps> = (props) => {
       </FormGroup>
       <FormGroup intent={Intent.PRIMARY}>
         <InputGroup
-          className={'bp3-dark bp3-primary'}
+          className={`${Classes.INTENT_PRIMARY} ${Classes.DARK}`}
           large={true}
           placeholder="Enter your password..."
           rightElement={<LockButton showPassword={showPassword} setShowPassword={setShowPassword} />}
@@ -81,7 +82,7 @@ const Login: React.FC<RouteComponentProps> = (props) => {
         intent={Intent.PRIMARY}
         helperText={
           <>
-            <h3 className="bp3-dark" style={{ display: 'inline' }}>We craft beautiful stuff here at Softup Technologies </h3>
+            <h3 className={`${Classes.DARK}`} style={{ display: 'inline' }}>We craft beautiful stuff here at Softup Technologies </h3>
             <Icon
               icon={'heart'}
               iconSize={Icon.SIZE_LARGE}
@@ -92,7 +93,7 @@ const Login: React.FC<RouteComponentProps> = (props) => {
         }
       >
         <Button
-          text='Login'
+          text='Submit'
           large={true}
           onClick={logIn}
         />

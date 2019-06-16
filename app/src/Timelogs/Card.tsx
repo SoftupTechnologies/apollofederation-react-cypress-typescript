@@ -7,23 +7,29 @@
  */
 
 import React from 'react';
-import { Card, Callout, Elevation, Icon, Intent } from '@blueprintjs/core';
+import { Card, Callout, Elevation, Icon, Intent, Classes } from '@blueprintjs/core';
 
-const TimelogCard: React.FC<{ author: string, log: string, username: string }> = ({
+const TimelogCard: React.FC<{ author: string, log: string, username: string, totalHours: number }> = ({
   author,
   log,
   username,
+  totalHours,
 }) => {
   return (
     <Card interactive={true} elevation={Elevation.TWO} className="bp3-dark" key={log + author}>
-      <h5 className="bp3-heading">{username}</h5>
-      <Callout className="bp3-intent-primary bp3-dark bp3-ui-text">
+      <h5 className={`${Classes.HEADING}`}>{username}</h5>
+      <Callout className={`${Classes.INTENT_PRIMARY} ${Classes.DARK} ${Classes.UI_TEXT}`}>
         {log === '<3'
           ? <Icon icon={'heart'} iconSize={Icon.SIZE_LARGE} intent={Intent.NONE} style={{ color: '#C22762' }} />
           : log
         }
       </Callout>
-      <p className="bp3-dark bp3-monospace-text bp3-text-small bp3-align-right" style={{ textAlign: 'right' }}>Total: 8h</p>
+      <p
+        className={`${Classes.INTENT_PRIMARY} ${Classes.MONOSPACE_TEXT} ${Classes.TEXT_SMALL}`}
+        style={{ textAlign: 'right' }}
+      >
+        Total: {totalHours}h
+      </p>
     </Card>
   )
 }

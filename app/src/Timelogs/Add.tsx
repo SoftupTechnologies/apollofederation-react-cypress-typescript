@@ -56,7 +56,8 @@ const Add: React.FC<{ open: boolean, setOpen: Dispatch<SetStateAction<boolean>> 
         }
         return (
           <Dialog
-            title="Add log" className="bp3-dark"
+            title="Add log"
+            className={`${Classes.DARK}`}
             isOpen={open}
             lazy
             onClose={() => setOpen(false)}
