@@ -23,3 +23,10 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', () => {
+  cy.visit('/');
+  cy.get(':nth-child(1) > .bp3-form-content > .bp3-input-group > .bp3-input').type('shpetim.selaci@softup.co');
+  cy.get(':nth-child(2) > .bp3-form-content > .bp3-input-group > .bp3-input').type('12345678');
+  cy.get('.bp3-form-content > .bp3-button').click();
+})

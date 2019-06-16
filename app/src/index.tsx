@@ -11,9 +11,10 @@ const App = async () => {
     uri: 'http://localhost:4000/gql/',
     onError: (e) => { console.log(e) },
     request: async operation => {
+      console.log(sessionStorage.getItem('token'));
       operation.setContext({
         headers: {
-          authorization: localStorage.getItem('token') || '',
+          authorization: sessionStorage.getItem('token') || '',
         },
       });
     },
