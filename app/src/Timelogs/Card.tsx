@@ -9,14 +9,15 @@
 import React from 'react';
 import { Card, Callout, Elevation, Icon, Intent, Classes } from '@blueprintjs/core';
 
-const TimelogCard: React.FC<{ author: string, log: string, username: string, totalHours: number }> = ({
+const TimelogCard: React.FC<{ author: string, log: string, username: string, totalHours: number, id: string }> = ({
   author,
   log,
   username,
   totalHours,
+  id,
 }) => {
   return (
-    <Card interactive={true} elevation={Elevation.TWO} className="bp3-dark" key={log + author}>
+    <Card interactive={true} elevation={Elevation.TWO} className="bp3-dark" key={id}>
       <h5 className={`${Classes.HEADING}`}>{username}</h5>
       <Callout className={`${Classes.INTENT_PRIMARY} ${Classes.DARK} ${Classes.UI_TEXT}`}>
         {log === '<3'

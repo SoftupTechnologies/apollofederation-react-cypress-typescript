@@ -18,6 +18,7 @@ export const me = gql`
         author {
           name
         }
+        id
         totalHours
         log
       }
