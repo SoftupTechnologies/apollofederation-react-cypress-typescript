@@ -14,6 +14,7 @@ export const addTimelog = gql`
       author {
         name
       }
+      id
       totalHours
       log
     }
