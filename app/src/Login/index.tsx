@@ -27,8 +27,8 @@ const Login: React.FC<RouteComponentProps> = (props) => {
   const logIn = (e) => {
     e.preventDefault()
     axios.post('http://localhost:4000/auth/login', credentials).then(({ data: { token, id } }) => {
-      localStorage.setItem('token', `Bearer ${token}`);
-      localStorage.setItem('id', id);
+      sessionStorage.setItem('token', `Bearer ${token}`);
+      sessionStorage.setItem('id', id);
       toast.show({
         message: 'Successfully logged in!',
         timeout: 2000,

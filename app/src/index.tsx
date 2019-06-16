@@ -13,7 +13,7 @@ const App = async () => {
     request: async operation => {
       operation.setContext({
         headers: {
-          authorization: localStorage.getItem('token') || '',
+          authorization: sessionStorage.getItem('token') || '',
         },
       });
     },
