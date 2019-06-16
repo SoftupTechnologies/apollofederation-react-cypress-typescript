@@ -23,7 +23,7 @@ const logIn = async (req: Request, res: Response) => {
         const passwordsMatch = bcrypt.compare(password, user.password || '');
         if (passwordsMatch) {
           const token = await sign(user);
-          return res.json({ token, id: user.id });
+          return res.json({ token });
         }
         return res.status(403).json({ error: authErrors.invalidPassword });
       }

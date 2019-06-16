@@ -67,9 +67,10 @@ const Timelogs: React.FC = () => {
                   </div>
                   <Divider style={{ backgroundColor: '#1F4B99', width: "100%", maxWidth: "500px" }} />
                   {
-                    timelogs.map(({ author, log, totalHours }) => {
+                    timelogs.map(({ author, log, totalHours, id }) => {
+                      console.log(id);
                       return (
-                        <TimelogCard author={author.name} log={log} username={username} totalHours={totalHours} key={author.name + log} />
+                        <TimelogCard author={author.name} log={log} username={username} totalHours={totalHours} id={id} key={id} />
                       )
                     })
                   }
