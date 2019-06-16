@@ -7,7 +7,7 @@
  */
 
 import React, { Fragment, useState } from 'react';
-import { Divider, Spinner, Intent, Button } from "@blueprintjs/core";
+import { Divider, Spinner, Intent, Button, Classes } from "@blueprintjs/core";
 import { Query } from 'react-apollo';
 import { me } from '../graphql/commonQueries';
 import TimelogCard from './Card';
@@ -27,19 +27,19 @@ const Timelogs: React.FC = () => {
               return <Spinner intent={Intent.PRIMARY} />
             }
             if (error) {
-              return <h5 className="bp3-heading bp3-dark">Something went wrong.</h5>
+              return <h5 className={`${Classes.HEADING} ${Classes.DARK}`}>Something went wrong.</h5>
             }
             if (!data) {
               return (
                 <Fragment>
-                  <h1 className="bp3-heading bp3-dark">There's no data...</h1>
+                  <h1 className={`${Classes.HEADING} ${Classes.DARK}`}>There's no data...</h1>
                 </Fragment>
               )
             }
             if (data && !data.me) {
               return (
                 <Fragment>
-                  <h1 className="bp3-heading bp3-dark">Oops..</h1>
+                  <h1 className={`${Classes.HEADING} ${Classes.DARK}`}>Oops..</h1>
                 </Fragment>
               )
             }
@@ -59,11 +59,11 @@ const Timelogs: React.FC = () => {
                     <Button
                       intent={Intent.SUCCESS}
                       icon="plus"
-                      className="bp3-dark"
+                      className={`${Classes.DARK}`}
                       minimal
                       onClick={(e) => { e.preventDefault(); setOpen(true); }}
                     />
-                    <h1 className="bp3-heading bp3-dark" style={{ display: 'inline' }}>{name} <span className="bp3-monospace-text bp3-running-text">{title}</span></h1>
+                    <h1 className={`${Classes.HEADING} ${Classes.DARK}`} style={{ display: 'inline' }}>{name} <span className={`${Classes.MONOSPACE_TEXT} ${Classes.RUNNING_TEXT}`}>{title}</span></h1>
                   </div>
                   <Divider style={{ backgroundColor: '#1F4B99', width: "100%", maxWidth: "500px" }} />
                   {
