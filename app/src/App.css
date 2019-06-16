@@ -7,6 +7,14 @@
   padding-top: 100px;
 }
 
+.App.center {
+  padding-top: unset;
+}
+
+.App-header.center {
+  justify-content: center;
+}
+
 .App-header {
   min-height: 100vh;
   display: flex;

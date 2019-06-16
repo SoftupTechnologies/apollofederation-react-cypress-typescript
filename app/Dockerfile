@@ -6,10 +6,9 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 COPY package.json /app
-COPY package-lock.json /app
-RUN npm install
-RUN npm i -g react-scripts@3.0.1
-RUN npm i typescript@3.2.1
+RUN yarn 
+# for windows to run react-scripts
+RUN yarn global add react-scripts@3.0.1 
 
 COPY . /app
 
