@@ -18,7 +18,7 @@ export const users: IUser[] = [
     birthDate: date,
     title: "employee",
     username: "@s3l4ci",
-    email: "shpetim.selaci@softup.co",
+    email: "demo.user1@softup.co",
     password: "$2a$12$dBRTJc45fePzSKvGhN5deOr0de/jKZZyOYm2RtsFWoJrXuzJ03Xri"
   },
   {
@@ -27,7 +27,7 @@ export const users: IUser[] = [
     birthDate: date,
     title: "boss",
     username: "@kristi",
-    email: "kristi.kristo@softup.co",
+    email: "demo.user2@softup.co",
     password: "$2a$12$FreOmYOIw91ZHqpUQ6DSiOMDwlg8riMx0E79EpKA0VJRJgxLVu30q"
   },
   {
@@ -36,7 +36,7 @@ export const users: IUser[] = [
     title: "employee",
     birthDate: date,
     username: "@stivo",
-    email: "stivi.ndoni@softup.co",
+    email: "demo.user3@softup.co",
     password: "$2a$12$kNn9JzmH0y1GREcEBO5T..cfVXQTgoqeZz4WPTToVdIzaZYrZBrqa"
   }
 ];
