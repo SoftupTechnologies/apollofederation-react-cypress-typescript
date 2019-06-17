@@ -35,7 +35,7 @@ export const users: IUser[] = [
     name: "Stivi Ndoni",
     title: "employee",
     birthDate: date,
-    username: "@stivo",
+    username: "@stivindoni",
     email: "demo.user3@softup.co",
     password: "$2a$12$kNn9JzmH0y1GREcEBO5T..cfVXQTgoqeZz4WPTToVdIzaZYrZBrqa"
   }
