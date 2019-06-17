@@ -10,6 +10,7 @@ import moment from "moment";
 import { IUser } from "./interfaces/user";
 
 const date = moment().format('DD/MM/YYYY');
+
 export const users: IUser[] = [
   {
     id: "1",
@@ -62,7 +63,7 @@ export const timelogs = [
   {
     id: "4",
     authorID: "2",
-    log: "Boss of",
+    log: "Managing Partner of",
     totalHours: "8",
   },
   {
