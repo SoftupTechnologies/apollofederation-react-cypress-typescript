@@ -1,15 +1,15 @@
-FROM timbru31/node-alpine-git
+## Build environment ##
+FROM node as builder
 
+# Create app directory
 RUN mkdir -p /app
-WORKDIR /app
 
-ENV PATH /app/node_modules/.bin:$PATH
+WORKDIR /usr/app
 
-COPY package.json /app
-RUN yarn 
-# for windows to run react-scripts
-RUN yarn global add react-scripts@3.0.1 
+COPY package*.json ./
 
-COPY . /app
+RUN npm install -qy
+
+COPY . .
 
 EXPOSE 3000
