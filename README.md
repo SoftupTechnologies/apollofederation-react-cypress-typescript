@@ -3,7 +3,7 @@
 Make sure you have installed docker, and docker-compose on your machine.
 
 Clone the project:
-`git clone https://github.com/SoftupTechnologies/apollofederation-react-cypress-typescript-.git`
+`git clone https://github.com/SoftupTechnologies/apollofederation-react-cypress-typescript.git`
 
 To setup && run project:
 `docker-compose up --build`
