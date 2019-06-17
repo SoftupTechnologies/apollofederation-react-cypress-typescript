@@ -15,3 +15,10 @@ module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 }
+
+Cypress.Commands.add('login', () => {
+  cy.visit('/');
+  cy.get(':nth-child(1) > .bp3-form-content > .bp3-input-group > .bp3-input').type('demo.user1@example.com');
+  cy.get(':nth-child(2) > .bp3-form-content > .bp3-input-group > .bp3-input').type('12345678');
+  cy.get('.bp3-form-content > .bp3-button').click();
+})
