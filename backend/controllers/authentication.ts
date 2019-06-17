@@ -10,7 +10,7 @@ import { Request, Response } from 'express';
 import { validateEmail } from '../helpers/validators';
 import { sign } from '../helpers/auth';
 import * as bcrypt from 'bcryptjs';
-import { users } from '../services/timelogs/mock';
+import { users } from '../mock';
 import { authErrors, serverErrors } from '../constants';
 
 const logIn = async (req: Request, res: Response) => {
